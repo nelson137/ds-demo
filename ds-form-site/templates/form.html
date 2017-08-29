@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+  <head>
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form.css') }}">
+  </head>
+  <body>
+    <form action="/submit_form">
+      <div class="grid">
+        <div class="row">
+          <span class="label">Name:</span>
+          <input name="name" type="text"/>
+        </div>
+
+        <div class="row">
+          <span class="label">Price:</span>
+          <input name="price" type="text"/>
+        </div>
+
+        <div class="row">
+          <span class="label">Stars:</span>
+          <select>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <span class="label">Ratings:</span>
+          <input name="num_ratings" type="text"/>
+        </div>
+
+        <div class="row row-submit">
+          <input type="submit" value="Submit"/>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
+
