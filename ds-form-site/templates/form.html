@@ -4,40 +4,53 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form.css') }}">
   </head>
   <body>
-    <form action="/submit_form">
-      <div class="grid">
-        <div class="row">
-          <span class="label">Name:</span>
-          <input name="name" type="text"/>
-        </div>
+    <div id="content">
+      <!-- <form action="/submit_form">
+        <table id="form-table">
+          <tr><td>
+            <table id="values-table">
 
-        <div class="row">
-          <span class="label">Price:</span>
-          <input name="price" type="text"/>
-        </div>
+              <tr id="row-name" class="row">
+                <td><span class="label">Name:</span></td>
+                <td id="input-td-price" class="input-td"><input name="name" type="text"/></td>
+                <td><img id="warn-icon-name" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
+              </tr>
 
-        <div class="row">
-          <span class="label">Stars:</span>
-          <select>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
+              <tr id="row-price" class="row">
+                <td><span class="label">Price:</span></td>
+                <td id="input-td-price" class="input-td"><input name="price" type="text"/></td>
+                <td><img id="warn-icon-price" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
+              </tr>
 
-        <div class="row">
-          <span class="label">Ratings:</span>
-          <input name="num_ratings" type="text"/>
-        </div>
+              <tr id="row-stars" class="row">
+                <td><span class="label">Stars:</span></td>
+                <td id="input-td-stars" class="input-td">
+                  <input name="stars-form" type="radio" value="0">0</input>
+                  <input name="stars-form" type="radio" value="1">1</input>
+                  <input name="stars-form" type="radio" value="2">2</input>
+                  <input name="stars-form" type="radio" value="3">3</input>
+                  <input name="stars-form" type="radio" value="4">4</input>
+                  <input name="stars-form" type="radio" value="5">5</input>
+                </td>
+                <td><img id="warn-icon-stars" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
+              </tr>
 
-        <div class="row row-submit">
-          <input type="submit" value="Submit"/>
-        </div>
-      </div>
-    </form>
+              <tr id="row-ratings" class="row">
+                <td><span class="label">Ratings:</span></td>
+                <td id="input-td-ratings" class="input-td">
+                  <input id="num-ratings" name="num-ratings" type="text" oninput="validate_num_ratings(event)"/>
+                </td>
+                <td><img id="warn-icon-ratings" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
+              </tr>
+
+            </table>
+          </td></tr>
+          <tr id="row-submit" class="row"><td><input id="submit" type="submit" value="Submit"/></td></tr>
+        </table>
+      </form> -->
+      <div id="a"/>
+    </div>
+
   </body>
 </html>
 

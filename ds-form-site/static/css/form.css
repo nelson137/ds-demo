@@ -1,9 +1,37 @@
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.row-submit {
+#content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00f;
 }
 
+#a {
+  width: 100px;
+  height: 100px;
+  background-color: #0f0;
+}
+
+
+
+table {
+  border-spacing: 10px;
+}
+
+.label, input {
+  font-size: 1.2em;
+}
+
+#row-submit {
+  text-align: center;
+}
+
+.warn-icon {
+  height: 1.4em;
+  margin-left:7px;
+  display: none;
+}
