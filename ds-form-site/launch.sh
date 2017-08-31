@@ -1,6 +1,6 @@
 #!/bin/bash
-# /etc/init.d/flask-site
+# /etc/init.d/ds-form-site
 
-source /var/www/site/site/venv/bin/activate
-python /var/www/site/site/__init__.py
+source /var/www/ds-form-site/ds-form-site/venv/bin/activate
+python /var/www/ds-form-site/ds-form-site/__init__.py
 
