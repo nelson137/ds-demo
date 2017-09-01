@@ -5,5 +5,5 @@ from logging import basicConfig
 from ds-form-site import app
 
 basicConfig(stream=sys.stderr)
-insert(0, '/var/www/ds-form-site/')
+insert(0, '/var/www/ds-demo/')
 
