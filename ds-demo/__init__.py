@@ -1,4 +1,4 @@
-#!/var/www/ds-form-site/ds-form-site/venv/bin/python
+#!/var/www/ds-demo/ds-demo/venv/bin/python
 
 import gspread, random
 from os.path import join, dirname
