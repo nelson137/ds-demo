@@ -54,11 +54,11 @@ def create_entry(name, price, stars, ratings):
 
 @app.route('/form/submit', methods=['GET', 'POST'])
 def submit_form():
-    name = request.form['name']
-    price = request.form['price']
-    stars = request.form['stars']
-    ratings = request.form['ratings']
-    create_entry(name, price, stars, ratings)
+    #name = request.form['name']
+    #price = request.form['price']
+    #stars = request.form['stars']
+    #ratings = request.form['ratings']
+    #create_entry(name, price, stars, ratings)
 
     flash('Form submitted successfully')
     return redirect('/form')
