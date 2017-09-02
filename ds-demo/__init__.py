@@ -1,20 +1,32 @@
 #!/var/www/ds-demo/ds-demo/venv/bin/python
 
-import gspread, random
-from os.path import join, dirname
+from os.path import join
 from time import time
 from flask import Flask, url_for, render_template, redirect, request, flash
+from pyrebase import initialize_app
+from random import choice
 from string import ascii_lowercase
-from oauth2client.service_account import ServiceAccountCredentials
 
 
 app = Flask(__name__)
 app.secret_key = '+J1OSR0e1qa5o2tdfxrAQqaR32cT7ipjSQI96wMVbfdRNTJgtSdlegii6x0PVzN7I+zc6MvV57s86V3vIn6kPg=='
 
+config = {
+    'apiKey': 'AIzaSyDilfOiFc_Pe3lR8beDD2A64kLKG4pP_rQ',
+    'authDomain': 'ds-demo-78281.firebaseapp.com',
+    'databaseURL': 'https://ds-demo-78281.firebaseio.com',
+    'projectId': 'ds-demo-78281',
+    'storageBucket': 'ds-demo-78281.appspot.com',
+    'serviceAccount': '/var/www/ds-demo/ds-demo/db-secret.json'
+}
+
+db = initialize_app(config).database()
+
 
 @app.context_processor
 def override_url_for():
     return dict(url_for=timestamped_url_for)
+
 
 def timestamped_url_for(endpoint, **values):
     if endpoint == 'static':
@@ -25,26 +37,33 @@ def timestamped_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 
-@app.route('/')
+@app.route('/form')
 def form():
     return render_template('form.html')
 
 
-@app.route('/submit_form', methods=['GET', 'POST'])
+def create_entry(name, price, stars, ratings):
+    entry = {
+        'name': name,
+        'price': price,
+        'stars': stars,
+        'ratings': ratings
+    }
+    db.push(entry)
+
+
+@app.route('/form/submit', methods=['GET', 'POST'])
 def submit_form():
-    '''scope = ['https://spreadsheets.google.com/feeds']
-    creds = ServiceAccountCredentials.from_json_keyfile_name(join(dirname(__file__), 'client_secret.json'), scope)
-    client = gspread.authorize(creds)
-
-    sheet = client.open('Demo DB').sheet1
-
-    row_count = len(sheet.get_all_values())
-    sheet.insert_row([row_count, random.choice(ascii_lowercase)*5], row_count+1)'''
+    name = request.form['name']
+    price = request.form['price']
+    stars = request.form['stars']
+    ratings = request.form['ratings']
+    create_entry(name, price, stars, ratings)
 
     flash('Form submitted successfully')
-
-    return redirect(url_for('form'))
+    return redirect('/form')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
