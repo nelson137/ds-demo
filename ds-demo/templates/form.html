@@ -2,12 +2,17 @@
   <head>
     <title>Form</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form.css') }}">
-    <script src="static/js/form.js"/>
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
   </head>
   <body>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <h1 id="flash" style="position: absolute; bottom: 0; left: 0;">{{ messages[0] }}</h1>
+        <script>
+          setTimeout(function() {
+            document.getElementById("flash").style.display = "none";
+          }, 3000);
+        </script>
       {% endif %}
     {% endwith %}
     
@@ -18,19 +23,19 @@
 
             <tr id="row-name" class="row">
               <td><span class="label">Name:</span></td>
-              <td id="input-td-price" class="input-td"><input name="name" type="text"/></td>
+              <td class="input-td"><input id="name" name="name" type="text" onkeypress="validateName(event)" onpaste"validateName(event)"/></td>
               <td><img id="warn-icon-name" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
             </tr>
 
             <tr id="row-price" class="row">
               <td><span class="label">Price:</span></td>
-              <td id="input-td-price" class="input-td"><input name="price" type="text"/></td>
+              <td class="input-td"><input id="price" name="price" type="text" onkeypress="validatePrice(event)" onpaste="validatePrice(event)"/></td>
               <td><img id="warn-icon-price" class="warn-icon" src="{{ url_for('static', filename='images/warn-icon.svg') }}"></td>
             </tr>
 
             <tr id="row-stars" class="row">
               <td><span class="label">Stars:</span></td>
-              <td id="input-td-stars" class="input-td">
+              <td class="input-td">
                 <input name="stars" type="radio" value="0" checked>0</input>
                 <input name="stars" type="radio" value="1">1</input>
                 <input name="stars" type="radio" value="2">2</input>
@@ -43,9 +48,7 @@
 
             <tr id="row-ratings" class="row">
               <td><span class="label">Ratings:</span></td>
-              <td id="input-td-ratings" class="input-td">
-                <input id="ratings" name="num-ratings" type="text" oninput="validate_num_ratings(event)"/>
-              </td>
+              <td class="input-td"><input id="ratings" name="num-ratings" type="text" onkeypress="validateRatings(event)" onpaste"validateRatings(event)"/></td>
               <td><img id="warn-icon-ratings" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
             </tr>
 
