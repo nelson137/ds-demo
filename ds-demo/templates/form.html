@@ -16,21 +16,21 @@
       {% endif %}
     {% endwith %}
     
-    <form action="/form/submit" method="post">
+    <form name="form" action="/form/submit" method="post" onsubmit="return onSubmit()" onSubmit(event)">
       <table id="form-table">
         <tr><td>
-          <table id="values-table">
+          <table id="inputs-table">
 
             <tr id="row-name" class="row">
               <td><span class="label">Name:</span></td>
-              <td class="input-td"><input id="name" name="name" type="text" onkeypress="validateName(event)" onpaste"validateName(event)"/></td>
+              <td class="input-td"><input id="name" name="name" type="text" required></td>
               <td><img id="warn-icon-name" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
             </tr>
 
             <tr id="row-price" class="row">
               <td><span class="label">Price:</span></td>
-              <td class="input-td"><input id="price" name="price" type="text" onkeypress="validatePrice(event)" onpaste="validatePrice(event)"/></td>
-              <td><img id="warn-icon-price" class="warn-icon" src="{{ url_for('static', filename='images/warn-icon.svg') }}"></td>
+              <td class="input-td"><input id="price" name="price" type="text" required oninput="validatePrice(event)" onpaste="validatePrice(event)"></td>
+              <td><img id="warn-icon-price" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
             </tr>
 
             <tr id="row-stars" class="row">
@@ -48,14 +48,15 @@
 
             <tr id="row-ratings" class="row">
               <td><span class="label">Ratings:</span></td>
-              <td class="input-td"><input id="ratings" name="num-ratings" type="text" onkeypress="validateRatings(event)" onpaste"validateRatings(event)"/></td>
+              <td class="input-td"><input id="ratings" name="ratings" type="text" required oninput="validateRatings(event)" onpaste="validateRatings(event)"></td>
               <td><img id="warn-icon-ratings" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
             </tr>
 
           </table>
         </td></tr>
-        <tr id="row-submit" class="row"><td><input id="submit" type="submit" value="Submit"/></td></tr>
+        <tr id="row-submit" class="row"><td><input id="submitBtn" value="Submit" type="submit" onclick="/*onSubmit()*/"></td></tr>
       </table>
     </form>
   </body>
 </html>
+
