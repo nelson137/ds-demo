@@ -1,0 +1,37 @@
+{% macro inputs_table() %}
+  <table id="inputs-table">
+
+    <tr id="row-name" class="row">
+      <td><span class="label">Name:</span></td>
+      <td class="input-td"><input id="name" name="name" type="text" required></td>
+      <td><img id="warn-icon-name" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
+    </tr>
+
+    <tr id="row-price" class="row">
+      <td><span class="label">Price:</span></td>
+      <td class="input-td"><input id="price" name="price" type="text" required oninput="validatePrice(event)" onpaste="validatePrice(event)"></td>
+      <td><img id="warn-icon-price" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
+    </tr>
+
+    <tr id="row-stars" class="row">
+      <td><span class="label">Stars:</span></td>
+      <td class="input-td">
+        <input name="stars" type="radio" value="0" checked>0</input>
+        <input name="stars" type="radio" value="1">1</input>
+        <input name="stars" type="radio" value="2">2</input>
+        <input name="stars" type="radio" value="3">3</input>
+        <input name="stars" type="radio" value="4">4</input>
+        <input name="stars" type="radio" value="5">5</input>
+      </td>
+      <td><img id="warn-icon-stars" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
+    </tr>
+
+    <tr id="row-ratings" class="row">
+      <td><span class="label">Ratings:</span></td>
+      <td class="input-td"><input id="ratings" name="ratings" type="text" required oninput="validateRatings(event)" onpaste="validateRatings(event)"></td>
+      <td><img id="warn-icon-ratings" class="warn-icon" src="https://image.flaticon.com/icons/svg/148/148768.svg"></td>
+    </tr>
+
+  </table>
+{% endmacro %}
+

@@ -60,7 +60,7 @@ def submit_form():
 
 @app.route('/form/')
 def form():
-    return render_template('form.html')
+    return render_template('manual.html')
 
 
 @app.route('/auto/')
