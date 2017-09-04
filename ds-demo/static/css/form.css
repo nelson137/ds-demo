@@ -19,5 +19,6 @@ table {
 .warn-icon {
   height: 1.4em;
   margin-left:7px;
-  display: auto;
+  display: none;
 }
+
