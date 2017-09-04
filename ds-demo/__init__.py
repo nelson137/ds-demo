@@ -37,31 +37,35 @@ def timestamped_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 
-@app.route('/form')
-def form():
-    return render_template('form.html')
-
-
 def create_entry(name, price, stars, ratings):
-    entry = {
+    db.push({
         'name': name,
         'price': price,
         'stars': stars,
         'ratings': ratings
-    }
-    db.push(entry)
+    })
 
 
-@app.route('/form/submit', methods=['GET', 'POST'])
+@app.route('/form/submit', methods=['POST'])
 def submit_form():
-    #name = request.form['name']
-    #price = request.form['price']
-    #stars = request.form['stars']
-    #ratings = request.form['ratings']
-    #create_entry(name, price, stars, ratings)
+    name = request.form['name']
+    price = request.form['price']
+    stars = request.form['stars']
+    ratings = request.form['ratings']
+    create_entry(name, price, stars, ratings)
 
     flash('Form submitted successfully')
     return redirect('/form')
+
+
+@app.route('/form/')
+def form():
+    return render_template('form.html')
+
+
+@app.route('/auto/')
+def auto():
+    return render_template('auto.html')
 
 
 if __name__ == '__main__':
