@@ -6,10 +6,12 @@ from flask import Flask, url_for, render_template, redirect, request, flash
 from pyrebase import initialize_app
 from random import choice
 from string import ascii_lowercase
+from urllib.request import urlopen
 
 
 app = Flask(__name__)
 app.secret_key = '+J1OSR0e1qa5o2tdfxrAQqaR32cT7ipjSQI96wMVbfdRNTJgtSdlegii6x0PVzN7I+zc6MvV57s86V3vIn6kPg=='
+app.url_map.strict_slashes = False
 
 config = {
     'apiKey': 'AIzaSyDilfOiFc_Pe3lR8beDD2A64kLKG4pP_rQ',
@@ -58,14 +60,19 @@ def submit_form():
     return redirect('/form')
 
 
-@app.route('/form/')
+@app.route('/manual')
 def form():
     return render_template('manual.html')
 
 
-@app.route('/auto/')
+@app.route('/auto')
 def auto():
     return render_template('auto.html')
+
+
+@app.route('/scrape-url')
+def scrape():
+    return urlopen(request.args['url']).read()
 
 
 if __name__ == '__main__':
