@@ -50,6 +50,7 @@ def create_entry(name, price, stars, ratings):
 
 @app.route('/form/submit', methods=['POST'])
 def submit_form():
+    # add ?next= arg to path for redirecting back to auto or manual
     name = request.form['name']
     price = request.form['price']
     stars = request.form['stars']
@@ -57,7 +58,7 @@ def submit_form():
     create_entry(name, price, stars, ratings)
 
     flash('Form submitted successfully')
-    return redirect('/form')
+    return redirect('/manual')
 
 
 @app.route('/manual')
