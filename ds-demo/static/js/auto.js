@@ -1,11 +1,10 @@
 function scrapeURL() {
-  request = new XMLHttpRequest(); 
-  request.open('GET', document.getElementById('url').value);
-  request.onreadystatechange = function() { 
-    if (request.readyState === 4 && request.status === 200) {
-      console.log(request);
+  url = document.getElementById('url').value;
+  $.ajax({
+    url: '/scrape-url/',
+    data: {url: url},
+    success: function(response) {
+      console.log(response)
     }
-  }
-  request.send(null);
+  });
 }
-
