@@ -48,6 +48,21 @@ def create_entry(name, price, stars, ratings):
     })
 
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/manual')
+def form():
+    return render_template('manual.html')
+
+
+@app.route('/auto')
+def auto():
+    return render_template('auto.html')
+
+
 @app.route('/form/submit', methods=['POST'])
 def submit_form():
     # add ?next= arg to path for redirecting back to auto or manual
@@ -59,16 +74,6 @@ def submit_form():
 
     flash('Form submitted successfully')
     return redirect('/manual')
-
-
-@app.route('/manual')
-def form():
-    return render_template('manual.html')
-
-
-@app.route('/auto')
-def auto():
-    return render_template('auto.html')
 
 
 @app.route('/scrape-url')
