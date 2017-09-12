@@ -10,7 +10,7 @@
 
     <style>
       #inputs-table, #submitBtn {
-        /* hide */
+        visibility: hidden;
       }
     </style>
 
@@ -18,10 +18,10 @@
       function scrapeURL() {
         url = document.getElementById('url').value;
         $.ajax({
-          url: '/scrape-url/',
+          url: '/scrape',
           data: {url: url},
           success: function(response) {
-            console.log(response);
+            alert(response);
           }
         });
       }

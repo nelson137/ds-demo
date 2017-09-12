@@ -76,7 +76,7 @@ def submit_form():
     return redirect('/manual')
 
 
-@app.route('/scrape-url')
+@app.route('/scrape')
 def scrape():
     return urlopen(request.args['url']).read()
 
