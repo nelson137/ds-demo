@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Index</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Raleway:300');
+
+      body {
+        --color-a: #04202c;
+        --color-b: #e29930;
+      }
+
+      #main {
+        position: absolute;
+        margin: auto;
+        padding: 0;
+        top: 0; right: 0; bottom: 0; left: 0;
+        width: 900px;
+        height: 200px;
+      }
+
+      .side {
+        position: block;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      #left {
+        width: 57%;
+        float: left;
+        justify-content: flex-end;
+        background: var(--color-a);
+      }
+
+      #right {
+        width: 43%;
+        float: right;
+        justify-content: flex-start;
+        background: var(--color-b);
+      }
+
+      #manual {
+        float: right;
+        color: var(--color-b);
+      }
+
+      #auto {
+        float: left;
+        color: var(--color-a);
+      }
+
+      a {
+        padding: 7px;
+        font-family: 'Raleway', sans-serif;
+        font-size: 7em;
+        text-decoration: none;
+        opacity: .6;
+
+        transition: all .65s ease;
+        -moz-transition: all .65s ease;
+        -webkit-transition: all .65s ease;
+      }
+
+      a:hover {
+        font-size: 7.02em;
+        opacity: 1;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="left" class="side">
+        <a id="manual" href="/manual">Manual</a>
+      </div>
+      <div id="right" class="side">
+        <a id="auto" href="/auto">Auto</a>
+      </div>
+    </div>
+  <body>
+</html>
