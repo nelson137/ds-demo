@@ -34,3 +34,22 @@
 
   </table>
 {% endmacro %}
+
+{% macro flashes() %}
+  {%- with messages = get_flashed_messages() -%}
+    {%- if messages -%}
+      <h1 id="flash">{{ messages[0] }}</h1>
+      <style>
+        #flash {
+          position: absolute;
+          bottom: 0; left: 0;
+        }
+      </style>
+      <script>
+        setTimeout(function() {
+          document.getElementById('flash').style.display = 'none';
+        }, 3000);
+      </script>
+    {%- endif -%}
+  {%- endwith -%}
+{% endmacro %}

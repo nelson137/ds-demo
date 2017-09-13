@@ -2,21 +2,12 @@
 <html>
   <head>
     <title>Form</title>
-    {%- from 'inputs_table.html' import inputs_table -%}
+    {%- from '_helpers.html' import inputs_table, flashes -%}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form.css') }}">
     <script src="{{ url_for('static', filename='js/form.js') }}"></script>
   </head>
   <body>
-    {%- with messages = get_flashed_messages() -%}
-      {%- if messages -%}
-        <h1 id="flash" style="position: absolute; bottom: 0; left: 0;">{{ messages[0] }}</h1>
-        <script>
-          setTimeout(function() {
-            document.getElementById("flash").style.display = "none";
-          }, 3000);
-        </script>
-      {%- endif -%}
-    {%- endwith -%}
+    {{ flashes() }}
 
     <form name="form" action="/form/submit" method="post" onsubmit="return onSubmit()" onSubmit(event)">
       <table id="form-table">
