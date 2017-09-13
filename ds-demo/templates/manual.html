@@ -9,7 +9,7 @@
   <body>
     {{ flashes() }}
 
-    <form name="form" action="/form/submit" method="post" onsubmit="return onSubmit()" onSubmit(event)">
+    <form name="form" action="/form/submit?next=/manual" method="post" onsubmit="return onSubmit()">
       <table id="form-table">
         <tr><td>
           {{ inputs_table() }}

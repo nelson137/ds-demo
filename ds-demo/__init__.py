@@ -73,7 +73,7 @@ def submit_form():
     create_entry(name, price, stars, ratings)
 
     flash('Form submitted successfully')
-    return redirect('/manual')
+    return redirect(request.args['next'])
 
 
 @app.route('/scrape')
